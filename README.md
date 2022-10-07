@@ -1,10 +1,10 @@
 # av-alused
 midagi midagi
-## Lorem Ipsum 1
+## I
 
-## Lorem Ipsum 2
+## Like
 
-## loetelu
+## Trains
 - el 1
 - el 2
 - el 3
