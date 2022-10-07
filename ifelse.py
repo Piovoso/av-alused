@@ -1,9 +1,13 @@
 dat_arr = ['liit','jag','korr','miin','vord','min','max']
 
 def input_a(type, numb): #Funktsioon dat_arr pohjal asjadele
-    a1=int(input('arv1: '))
-    a2=int(input('arv2: '))
-    if numb == 3: a3=int(input('arv3: '))
+    try:
+        a1=int(input('arv1: '))
+        a2=int(input('arv2: '))
+        if numb == 3: a3=int(input('arv3: '))
+    except(ValueError):
+        print(f'pizdets, njetu number, ainult taht')
+        return
     
     match type: #Match case, algne info match taha.
         case 'liit': #Case on juhus mis voib olla vordne Match-iga
@@ -61,5 +65,5 @@ while True: #alustab proge uuesti kui eelnev saab tehtud.
             if 2<=int(numb_count)<=3: input_a(dat, int(numb_count))
             else: print(f'err: {numb_count} not <= or >=. Pls buy glasses.')
         else: print(f'err: {dat} not in dat_arr array of acceptable inputs\nacceptable: {dat_arr}')
-    except: print(f'err: numb_count does not take str. Must be int.')
+    except(ValueError): print(f'err: numb_count does not take str. Must be int.')
     # print(f'jutt {var}') annab voimaluse eemaldada komasid ja plusse, vahendab jutumarkide kasutust ja lihtdalt ilusam ja kergem arusaada.
