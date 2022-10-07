@@ -1,24 +1,23 @@
 # av-alused
-midagi midagi
+midagi tkst
 ## I
-
+Porgandi värvi rongid
 ## Like
-
+nelja vaguniga rongid
 ## Trains
-- el 1
-- el 2
-- el 3
-- el 4
-- el 5
+- elektrirong 1
+- elektrirong 2
+- elektrirong 3
+- elektrirong 4
+- elektrirong 5
 
 ```
-dhsfoijsv
-oisdewjnvasksaf
-iwei
-oijsfpiovfoka
-ifpijjnksokopfpokkfdklopoew
-  soinpoiepokeon
-  kivfijweid
-foijjis
-  iosafijoiojweij
+rong_count=4
+malfunc=True
+
+if rong_count >= 4:
+  if not malfunc:
+    print(f'Rongid on good to go')
+   else: print(f'Rongidel on vead sees')
+elif rong_count <4: print(f'Ronge pole piisavalt')
 ```
