@@ -1,10 +1,11 @@
-dat_arr = ['liit','jag','korr','miin','vord','min','max','while','for']
+import json as js
+dat_arr = js.load(open('dat.json','r'))
+range_count = 0
 
 def input_a(type, numb, range_co): #Funktsioon dat_arr pohjal asjadele
     try:
         a1=int(input('arv1: '))
-        if type in dat_arr[0:7]:
-            a2=int(input('arv2: '))
+        if type in dat_arr['ARR_DATA'][0:7]: a2=int(input('arv2: '))
         if numb == 3: a3=int(input('arv3: '))
     except(ValueError):
         print(f'pizdets, njetu number, ainult taht')
@@ -58,7 +59,7 @@ def input_a(type, numb, range_co): #Funktsioon dat_arr pohjal asjadele
                 else: print(f'{a2} on min')
 
         case 'while':
-            while a1 < range_co:
+            while a1 <= range_co:
                 print(a1)
                 a1=a1+1
         
@@ -68,17 +69,19 @@ def input_a(type, numb, range_co): #Funktsioon dat_arr pohjal asjadele
 
 while True: #alustab proge uuesti kui eelnev saab tehtud.
     dat = input('liit/jag/miin/korr/vord/min/max/while/for\ntype:') #\n on uue rea loomine ilma uue print() statementita.
-    if dat in dat_arr[0:7]: numb_count = input('numb amount [int][max:3/min:2]: ')
+
+    if dat in dat_arr['ARR_DATA'][0:7]: numb_count = input('numb amount [int][max:3/min:2]: ')
     else: 
         range_count = input('select Range [int][min:1/max:4294967295]: ')
         numb_count = 2
     
     try:
-        if len(dat)>0 and dat in dat_arr: # and/or et vorrelda kahte asja yhes if-is. kompaktsem.
+        if len(dat)>0 and dat in dat_arr['ARR_DATA']: # and/or, et vorrelda kahte asja yhes if-is. kompaktsem.
             if 2<=int(numb_count)<=3: 
-                if type in dat_arr[0:7]: input_a(dat, int(numb_count), 0)
+                if type in dat_arr['ARR_DATA'][0:7]: input_a(dat, int(numb_count), 0)
                 else: input_a(dat, int(numb_count), int(range_count))
+
             else: print(f'err: {numb_count} not 2<= or >=3. Pls buy glasses.')
-        else: print(f'err: {dat} not in dat_arr array of acceptable inputs\nacceptable: {dat_arr}')
-    except(ValueError): print(f'err: numb_count does not take str. Must be int.')
+        else: print(f'err: {dat} not in dat_arr array of acceptable inputs\nacceptable:', dat_arr['ARR_DATA'])
+    except(ValueError): print(f'err: var labled as [int] must be int does not take str.')
     # print(f'jutt {var}') annab voimaluse eemaldada komasid ja plusse, vahendab jutumarkide kasutust ja lihtdalt ilusam ja kergem arusaada.
